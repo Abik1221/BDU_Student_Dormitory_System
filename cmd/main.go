@@ -1,25 +1,26 @@
 package main
 
 import (
-    "bdu-dormitory-backend/config"
-    "bdu-dormitory-backend/routes"
-    "github.com/gin-gonic/gin"
+	"log"
+
+	"github.com/abik1221/bdu-dormitory-backend/config"
+	"github.com/abik1221/bdu-dormitory-backend/routes"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-    // Initialize database connection
-    db, err := config.InitDB()
-    if err != nil {
-        panic("Failed to connect to database: " + err.Error())
-    }
-    defer db.Close()
 
-    // Set up Gin router
-    r := gin.Default()
+	db, err := config.InitDB()
+	if err != nil {
+		log.Fatalf("Failed to connect to database: %v", err)
+	}
+	defer db.Close()
 
-    // Initialize routes
-    routes.SetupRoutes(r, db)
+	r := gin.Default()
 
-    // Start server
-    r.Run(":8080") // Runs on http://localhost:8080
+	routes.SetupRoutes(r, db)
+
+	if err := r.Run(":8080"); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }
