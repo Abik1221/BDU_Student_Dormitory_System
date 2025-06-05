@@ -149,9 +149,9 @@ pls use postman or tender client to test the Api end points properly
 
  Meklit Anteneh (1507008), 
  Tamer Getaw (1507859), 
- Feruza Mohamed (1506085), 
- Naom Keneni (1507336), 
- Eyerus Tekto (1506000)
+Mahider Abebaw (1506879), 
+ Nahom Keneni (1507336), 
+Lidia Getaneh (1506836)
 
  Thankyou!
 
